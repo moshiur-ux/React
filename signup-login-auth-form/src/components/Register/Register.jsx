@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import auth from "../firebase/firebase.config";
 import { useState } from "react";
 import { AiFillEye,AiFillEyeInvisible} from "react-icons/ai";
+import { Link } from "react-router-dom";
 
 const Register = () => {
 
@@ -18,7 +19,8 @@ const Register = () => {
         console.log("from sumitted successfully");
         const email=e.target.email.value;
         const password=e.target.password.value
-        console.log(email ,password);
+        const accepted = e.target.terms.checked;
+        console.log(email ,password,accepted);
         
         if(password.length <6)
         {
@@ -31,6 +33,11 @@ const Register = () => {
           setRegisterError('Your password should have at least one upper case Characters.')
           return ;
         }
+
+        else if(!accepted){
+          setRegisterError('Please accept our terms and conditions!')
+          return;
+      }
 
 
         // reset error
@@ -82,6 +89,11 @@ const Register = () => {
               showPassword ? <AiFillEye/> :<AiFillEyeInvisible/> 
             }
           </span>
+          <br />
+          <div className="mb-2">
+                        <input type="checkbox" name="terms" id="terms" />
+                        <label className="ml-2" htmlFor="terms">Accept our <a href="">Terms and Conditions</a></label>
+                    </div>
           
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
@@ -98,9 +110,11 @@ const Register = () => {
         {
            successfulww &&<p className="text-green-400">{successfulww}</p>
         }
-
+          <p>Already have an account? <Link  to="/login">Login</Link></p>
       </div>
+      
     </div>
+   
   </div>
 </div>
    
