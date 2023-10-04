@@ -10,6 +10,7 @@ const Header = () => {
     <li className="ml-2 btn"><NavLink to="/register">Register</NavLink></li>
     
     
+    
     </>
     return (
         <div className="navbar bg-base-100">
