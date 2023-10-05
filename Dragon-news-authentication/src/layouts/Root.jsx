@@ -2,8 +2,8 @@ import { Outlet } from "react-router-dom";
 
 const Root = () => {
     return (
-        <div>
-            <h2>Moshiur</h2>
+        <div className="max-w-6xl mx-auto font-Poppins">
+            
             <Outlet></Outlet>
         </div>
     );
