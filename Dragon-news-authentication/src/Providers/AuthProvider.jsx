@@ -8,14 +8,18 @@ const auth = getAuth(app);
 
 const AuthProvider = ({children}) => {
     const [user,setuser]=useState(null)
+    const [loading,setloading]=useState(true);
+
 
     const createuser= (email,password)=>
     {
+        setloading(true)
         return createUserWithEmailAndPassword(auth,email,password)
     }
 
     const signIn =(email,password)=>
   {
+    setloading(true)
     return signInWithEmailAndPassword(auth,email,password);
 
 
@@ -24,6 +28,7 @@ const AuthProvider = ({children}) => {
 
     const logOut=()=>
     {
+        setloading(true)
         return signOut(auth)
 
     }
@@ -34,6 +39,7 @@ const AuthProvider = ({children}) => {
             {
                 console.log('user in the auth state changed',currentuser);
                 setuser(currentuser)
+                setloading(false)
             })
 
             return ()=>
@@ -46,6 +52,7 @@ const AuthProvider = ({children}) => {
 
 
     const authinfo={
+        loading,
         user,
         createuser,
         logOut,
