@@ -10,7 +10,7 @@ const SingleProductCard = ({ product, discount }) => {
                 }
                 <figure className='h-5/6'>
 
-                    <img src={product.image} alt="car!" />
+                    <img src="" alt="car!" />
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">${product.price}</h2>

@@ -57,6 +57,9 @@ const Register = () => {
 
           })
 
+
+          
+
     }
     return (
         <div className="flex justify-center items-center mt-[10px]">

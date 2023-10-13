@@ -1,39 +1,9 @@
 import { Link } from 'react-router-dom';
-import SocialLogin from './SocialLogin';
-import useAuth from '../../Hooks/useAuth';
-import toast from 'react-hot-toast';
+
 
 
 
 const Login = () => {
-
-    const {signin}=useAuth()
-
-    const handlesignin=(e)=>
-    {
-        e.preventDefault();
-        //get filed values
-        const email=e.target.email.value;
-        const password=e.target.password.value;
-    
-        //validation
-    
-        if(password.length<6)
-        {
-            toast.error(`Password  must be at least 6 characters`);
-            return ;
-    
-    
-        }
-    
-        //creating a new user
-    
-        signin(email,password)
-        .then(res=>console.log(res.user))
-        .catch(error=>console.log(error))
-    
-     
-    }
 
 
     return (
@@ -45,7 +15,7 @@ const Login = () => {
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form onSubmit={handlesignin} className="card-body">
+                        <form  className="card-body">
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
@@ -67,7 +37,7 @@ const Login = () => {
                             <label className="label">
                                 New here? <Link to="/register" className="label-text-alt link link-hover">Create an account</Link>
                             </label>
-                            <SocialLogin />
+                            
                         </form>
                     </div>
                 </div>

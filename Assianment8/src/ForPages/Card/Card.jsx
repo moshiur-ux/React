@@ -26,9 +26,6 @@ console.log(card)
     return (
         <div>
             <Imcard card={card}></Imcard>
-
-
-            
             
         </div>
     );
